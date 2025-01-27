@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap');
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+.container {
+  padding: 24px 24px 63px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dropdown-button{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dropdown-area {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+}
+
+.dropdown-button:focus + .dropdown-menu,
+.dropdown-menu:active {
+  display: block;
+  padding: 5px;
+}
+
+.dropdown-option {
+  cursor: pointer;
+}
+
+.switch {
+  appearance: none;
+  background-color: #A729F5;
+  height: 20px;
+  width: 32px;
+  display: inline-flex;
+  margin: 0;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 4px;
+  transition: all .4s;
+  cursor: pointer;
+}
+
+.switch:after {
+  content: "";
+  background-color: white;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.switch:checked {
+  background-color: #A729F5;
+  justify-content: end;
+}
+
+
+.inputSearch {
+  background-image: url('./img/search-icon.svg');
+  background-position: 95% 50%;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  width: 100%;
+  height: 64px;
+  border-radius: 16px;
+  border-style : none;
+  background-color: #F4F4F4;
+  padding-block:20px ;
+  padding-left: 24px;
+}
+
+.word-container {
+  margin-top: 25px;
+  min-height: 100vh;
+}
+
+.word-pronounciation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 40px;
+
+}
+.pronounciation-text{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.word-text {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 33.57px;
+  color : #2D2D2D;
+}
+
+.word-pron-text {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29.05px;
+  color : #A445ED;
+}
+
+.word-meanings-first, .word-meanings-second,
+.word-meanings-third {
+  margin-block: 39px;
+}
+
+.word-type {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.meaning-text {
+  margin-top: 38px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color : #757575;
+  margin-bottom: 24px;
+}
+
+.word-type span {
+  flex-grow: 1;
+  height: 1px;
+  background-color :#E9E9E9;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 24px;
+}
+
+ul li::marker {
+  color: #8F19E8;
+  margin-left: 25px;
+
+}
+
+ul li {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #2D2D2D;
+  padding-left: 5px;
+
+}
