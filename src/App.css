@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap');
+
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -19,18 +22,31 @@ body {
 }
 
 /* 5. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 6. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 7. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -38,25 +54,38 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   9. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
 .container {
-  padding: 24px 24px 63px;
+  padding-top: 24px;
+  padding-inline: 24px;
+  padding-bottom: 84px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .book-icon {
+    width: 28px;
+  }
 }
 
 .header-right {
@@ -66,13 +95,28 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
-.dropdown-button{
+.dropdown-button {
   display: flex;
   gap: 16px;
   align-items: center;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  position: relative;
+  width: 110px;
+
+  span {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #2D2D2D;
+  }
+
+  img {
+    position: absolute;
+    top: 8px;
+    right: 0;
+  }
 }
 
 .dropdown-area {
@@ -82,12 +126,21 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-menu {
   display: none;
   position: absolute;
+  width: 110px;
+  top: 35px;
+  right: 55px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 5px 30px 0px #0000001A;
+
 }
 
-.dropdown-button:focus + .dropdown-menu,
+.dropdown-button:focus+.dropdown-menu,
 .dropdown-menu:active {
-  display: block;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 15px;
 }
 
 .dropdown-option {
@@ -130,10 +183,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 64px;
   border-radius: 16px;
-  border-style : none;
+  border-style: none;
   background-color: #F4F4F4;
-  padding-block:20px ;
+  padding-block: 15px;
   padding-left: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #2D2D2D;
+
 }
 
 .word-container {
@@ -148,7 +207,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-block: 40px;
 
 }
-.pronounciation-text{
+
+.pronounciation-text {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -158,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 32px;
   font-weight: 700;
   line-height: 33.57px;
-  color : #2D2D2D;
+  color: #2D2D2D;
 }
 
 .word-pron-text {
@@ -166,10 +226,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 24px;
   font-weight: 400;
   line-height: 29.05px;
-  color : #A445ED;
+  color: #A445ED;
 }
 
-.word-meanings-first, .word-meanings-second,
+.word-meanings-first,
+.word-meanings-second,
 .word-meanings-third {
   margin-block: 39px;
 }
@@ -178,33 +239,42 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 25px;
   align-items: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: #2D2D2D;
+  }
+
 }
 
-.meaning-text {
-  margin-top: 38px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 25.6px;
-  color : #757575;
-  margin-bottom: 24px;
-}
 
 .word-type span {
   flex-grow: 1;
   height: 1px;
-  background-color :#E9E9E9;
+  background-color: #E9E9E9;
 }
 
-ul {
+.meaning-text {
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color: #757575;
+  margin-bottom: 17px;
+}
+
+/* ul {
   display: flex;
   flex-direction: column;
-  gap: 13px;
   padding-left: 24px;
 }
 
+
 ul li::marker {
   color: #8F19E8;
-  margin-left: 25px;
 
 }
 
@@ -213,6 +283,197 @@ ul li {
   font-weight: 400;
   line-height: 24px;
   color: #2D2D2D;
-  padding-left: 5px;
 
+} */
+
+.meaning-items {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+}
+
+.meaning-item::marker {
+  color: #8F19E8;
+}
+
+.meaning-item {
+  padding-left: 10px;
+}
+
+.word-definition {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #2D2D2D;
+}
+
+.example-sentence {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #757575;
+  margin-top: 13px;
+}
+
+.synonym-section {
+  margin-top: 24px;
+  display: flex;
+  padding-top: 15px;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 32px;
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: #757575;
+  }
+}
+
+.synonym-words-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  align-items: center;
+  gap: 15px;
+
+  li {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: #A445ED;
+    cursor: pointer;
+  }
+
+}
+
+
+.end-of-line {
+  display: flex;
+  height: 1px;
+  background-color: #E9E9E9;
+  margin-block: 25px;
+}
+
+.source-link-section {
+  a {
+    display: flex;
+    gap: 15px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    color: #2D2D2D;
+  }
+}
+
+
+@media(width>=768px) {
+
+  .container {
+    padding: 58px 39px 118px;
+  }
+
+  header {
+    .book-icon {
+      width: 32px;
+    }
+  }
+
+  .dropdown-button {
+    width: 140px;
+
+    span {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  .inputSearch {
+    margin-block: 50px;
+    padding-block: 20px;
+    font-size: 20px;
+  }
+
+  .pronounciation-text {
+    gap: 11px;
+  }
+
+  .word-text {
+    font-size: 64px;
+    line-height: 100%;
+  }
+
+
+  .word-pronounciation {
+    margin-block: 42px;
+  }
+
+  .word-pronounciation img {
+    width: 75px;
+  }
+
+  .meaning-text {
+    margin-top: 43px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25.6px;
+    color: #757575;
+    margin-bottom: 27px;
+  }
+
+  .word-definition {
+    font-size: 18px;
+  }
+
+
+  .synonym-section {
+    margin-top: 41px;
+    gap: 40px;
+    margin-bottom: 43px;
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .synonym-words-area {
+    gap: 25px;
+
+    li {
+      font-size: 20px;
+    }
+
+  }
+
+  .word-type {
+    gap: 32px;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  .footer-part {
+    display: flex;
+    gap: 25px;
+  }
+
+}
+
+
+@media(width > 1110px) {
+
+  .inner-container {
+    max-width: 737px;
+    margin-inline: auto;
+
+  }
 }
