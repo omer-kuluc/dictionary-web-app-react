@@ -1,0 +1,80 @@
+body.dark-mode {
+  background-color: #050505;
+
+
+  .dropdown-menu {
+    box-shadow: 0px 5px 30px 0px #A445ED;
+    background-color: #1F1F1F;
+    color: #fff;
+
+    .dropdown-option:hover {
+      color: #A445ED;
+    }
+  }
+
+
+  .inputSearch {
+    background-color: #1F1F1F;
+    color: #fff;
+  }
+
+  .dropdown-button span,
+  .word-text,
+  .word-type h1,
+  .meaning-text,
+  .word-definition,
+  .synonym-section p,
+  .footer-part p,
+  a,
+  .not-found-title {
+    color: #fff;
+  }
+
+
+  .word-type span {
+    background-color: #3A3A3A;
+
+  }
+
+  .not-found-emoji {
+    margin-bottom: 24px;
+    margin-inline: auto;
+    font-size: 10px;
+    font-size: 20px;
+  }
+
+
+  .not-found-message {
+    color: #757575;
+  }
+
+  @media (width > 768px) {
+
+    .not-found-emoji {
+      font-size: 36px;
+    }
+  }
+
+
+  @media (width > 1110px) {
+
+    .not-found-message {
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0px;
+    }
+
+    .not-found-emoji {
+      font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+      font-size: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .error-message {
+    color: #ff6b6b;
+  }
+
+}

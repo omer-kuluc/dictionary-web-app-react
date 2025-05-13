@@ -1,30 +1,44 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, createContext, useContext } from 'react'
 import './App.css'
+
+
 
 function App() {
   const [searchInput, setSearchInput] = useState('');
   const [wordInfo, setWordInfo] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [isEmpty, setIsEmpty] = useState(false);
+
 
   useEffect(() => {
     async function getData() {
       if (searchInput) {
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchInput}`);
-        if (response.ok) {
-          const data = await response.json();
-          setWordInfo(data); // Başarılı olursa state'e yaz
-        } else {
-          setWordInfo(null); // Başarısız olursa null ata
+        try {
+          const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchInput}`);
+          if (response.ok) {
+            const data = await response.json();
+            setWordInfo(data);
+          } else {
+            setWordInfo(null);
+          }
+        } catch (error) {
+          console.error("Fetch error:", error);
+          setWordInfo(null);
         }
       }
     }
-    getData(); // Veriyi çek
+    getData();
   }, [searchInput]);
 
 
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (inputValue.trim() === "") {
+      setIsEmpty(true);
+      return;
+    }
+    setIsEmpty(false);
     setSearchInput(inputValue)
   }
 
@@ -32,7 +46,8 @@ function App() {
     <>
       <div className="container">
         <div className="inner-container">
-          <Header inputValue={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} />
+          <Header inputValue={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}
+            isEmpty={isEmpty} />
           <Word wordInfo={wordInfo} searchInput={searchInput} setSearchInput={setSearchInput}
             setInputValue={setInputValue} />
         </div>
@@ -42,10 +57,22 @@ function App() {
   )
 }
 
-function Header({ inputValue, setInputValue, handleSubmit }) {
+function Header({ inputValue, setInputValue, handleSubmit, isEmpty }) {
   const [fontType, setFontType] = useState('Inter');
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [darkMode, setDarkMode] = useState(localStorage.theme === "true" ? true : false);
+
+  useEffect(() => {
+    localStorage.theme = darkMode;
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.removeAttribute("class");
+    }
+  }, [darkMode]);
+
+
 
   useEffect(() => {
     document.body.style.fontFamily = fontType;
@@ -87,20 +114,24 @@ function Header({ inputValue, setInputValue, handleSubmit }) {
             )}
           </div>
 
-          <input className="switch" type="checkbox" id="themeChange" />
-          <span><img src="./img/dark-theme.svg" alt="Dark Mode Icon" /></span>
+          <input className="switch" type="checkbox" id="themeChange" checked={darkMode}
+            onChange={() => setDarkMode(!darkMode)} />
+          <span onClick={() => setDarkMode(!darkMode)}>
+            <img className='moon-icon' src={darkMode ? "./img/light-moon.svg" : "/img/dark-moon.svg"}
+              alt="Theme Mode Icon" /></span>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} autoComplete='off'>
         <input
           onChange={(e) => setInputValue(e.target.value)}
-          className="inputSearch"
+          className={`inputSearch ${isEmpty ? 'input-error' : ''}`}
           type="text"
           placeholder="aranacak kelime"
           name="filteredWord"
           value={inputValue}
         />
+        {isEmpty && <p className='error-message'>Whoops, can’t be empty…</p>}
       </form>
     </>
   );
@@ -109,6 +140,16 @@ function Header({ inputValue, setInputValue, handleSubmit }) {
 function Word({ wordInfo, setSearchInput, setInputValue }) {
   return (
     <>
+      {wordInfo === null && (
+        <div className="not-found-container">
+          <p className='not-found-emoji'>🙄</p>
+          <h2 className="not-found-title">No Definitions Found</h2>
+          <p className="not-found-message">
+            Sorry pal, we couldn't find definitions for the word you were looking for.
+            You can try the search again at later time or head to the web instead.
+          </p>
+        </div>
+      )}
       {wordInfo?.length > 0 && (
         <div className="word-container">
           <div className="word-pronounciation">
