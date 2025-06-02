@@ -1,4 +1,4 @@
-# 📖 Dictionary Web App – React
+# - Dictionary Web App – React
 
 Kelimelerin anlamını, telaffuzunu ve örnek cümlelerini kolayca öğrenmeye yarayan modern sözlük uygulaması.  
 Temiz arayüzü ve karanlık/aydınlık tema desteğiyle kullanıcıya konforlu bir deneyim sunar.
@@ -7,58 +7,58 @@ Temiz arayüzü ve karanlık/aydınlık tema desteğiyle kullanıcıya konforlu 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3)
 
-## 🔗 Canlı Demo
+## - Canlı Demo
 
 👉 [https://dictionary-web-app-react-omega.vercel.app/](https://dictionary-web-app-react-omega.vercel.app/)
 
 ---
 
-## 🎯 Proje Özeti
+## - Proje Özeti
 
 **Dictionary Web App**, bir kelime yazıldığında anlamı, telaffuzu, eş anlamlıları ve örnek kullanımları gibi detaylı verileri kullanıcıya sunan bir sözlük uygulamasıdır.  
 Veriler API üzerinden dinamik olarak çekilir ve sade bir arayüzle gösterilir.
 
 ---
 
-## 🚀 Özellikler
+## - Özellikler
 
-### 🔍 Arama Fonksiyonu
+### - Arama Fonksiyonu
 
 - Sayfanın üst kısmındaki giriş alanına yazılan kelimeler anlık olarak işlenir.
 - Geçerli bir kelime bulunamazsa hata mesajı görünür.
 
-### 🗣️ Telaffuz Sesleri
+### - Telaffuz Sesleri
 
 - Varsa kelimenin telaffuzu ses ikonuna tıklanarak dinlenebilir.
 - Ses çalma özelliğiyle öğrenmeyi destekler.
 
-### 🧠 Anlam & Kullanım
+### - Anlam & Kullanım
 
 - Kelimenin türü (isim, fiil vb.) ve tanımı listelenir.
 - Tanımın altında örnek bir cümle yer alır.
 
-### 🔗 Eş Anlamlılar
+### - Eş Anlamlılar
 
 - "Synonyms" başlığı altında ilgili kelimenin eş anlamlıları listelenir.
 - Tıklanabilir şekilde sunularak yeni arama yapılabilir.
 
-### 🌗 Tema Değiştirme (Dark / Light)
+### - Tema Değiştirme (Dark / Light)
 
 - Sağ üstteki anahtarla karanlık ve aydınlık tema arasında geçiş yapılabilir.
 - Tema tercihi `localStorage` ile korunur.
 
-### 🔠 Font Seçimi
+### - Font Seçimi
 
 - Açılır menüyle farklı font türleri (örneğin Sans Serif, Serif) seçilebilir.
 - Uygulamanın genel görünümüne etki eder.
 
-### 📱 Duyarlı Tasarım
+### - Duyarlı Tasarım
 
 - Mobil, tablet ve masaüstü cihazlarda tutarlı görünüm sağlar.
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler
+## - Kullanılan Teknolojiler
 
 - React  
 - JavaScript (ES6+)  
@@ -68,7 +68,7 @@ Veriler API üzerinden dinamik olarak çekilir ve sade bir arayüzle gösterilir
 
 ---
 
-## 💻 Kurulum ve Çalıştırma
+## - Kurulum ve Çalıştırma
 
 ### 1. Depoyu Klonla
 
@@ -98,7 +98,7 @@ Uygulama varsayılan olarak [http://localhost:5173](http://localhost:5173) adres
 
 ---
 
-## 🎯 Hedefler
+## - Hedefler
 
 - Hızlı ve doğru kelime arama  
 - Telaffuz desteği  
