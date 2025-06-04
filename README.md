@@ -92,7 +92,7 @@ Veriler API üzerinden dinamik olarak çekilir ve sade bir arayüzle gösterilir
 ### 1. Depoyu Klonla
 
 ```bash
-git clone https://github.com/kullanici-adi/dictionary-web-app-react.git
+git clone https://github.com/omer-kuluc/dictionary-web-app-react.git
 ```
 
 ### 2. Dizin Değiştir
